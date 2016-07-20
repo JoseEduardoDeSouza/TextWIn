@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
 
         View v = listaView.getChildAt(0);
         int top = (v == null) ? 0 : v.getTop();
-        this.listaView.setSelectionFromTop(listaItensView.size(), top);
 
         // Inicia a Thread que ficara atualizando a lista.
         new obterMensagensTask().execute("");
@@ -108,10 +107,12 @@ public class MainActivity extends AppCompatActivity {
     class obterMensagensTask extends AsyncTask<String, String, List> {
 
         public boolean parar = false;
+        public boolean entrou = false;
 
         @Override
         protected List<ItemListView> doInBackground(String... params) {
             parar = false;
+
             while (!parar) {
 
                 Fuel.get("http://192.168.10.118:5000/mensagens").responseString(new Handler<String>() {
@@ -149,9 +150,14 @@ public class MainActivity extends AppCompatActivity {
                         adaptador = new AdapterListView(MainActivity.this, listaItensView);
                         listaView.setAdapter(adaptador);
 
-
-                        /* Volta a visualizacao da lista para o itemView que ele estava visualizando antes de atualizar. */
-                        listaView.setSelectionFromTop(index, top);
+                        if (!entrou) {
+                            entrou = true;
+                            listaView.setSelectionFromTop(listaItensView.size(), top);
+                        }
+                        else {
+                            /* Volta a visualizacao da lista para o itemView que ele estava visualizando antes de atualizar. */
+                            listaView.setSelectionFromTop(index, top);
+                        }
                     }
                 });
 
