@@ -47,6 +47,8 @@ public class AdapterListView extends BaseAdapter {
             itemSuporte = new ItemSuporte();
             itemSuporte.textoView = ((TextView) view.findViewById(R.id.iten_texto));
 
+            itemSuporte.nomeView = ((TextView) view.findViewById(R.id.iten_nome));
+
             view.setTag(itemSuporte);
         }
         else {
@@ -56,10 +58,13 @@ public class AdapterListView extends BaseAdapter {
         ItemListView item = listaItens.get(i);
         itemSuporte.textoView.setText(item.getTexto());
 
+        itemSuporte.nomeView.setText(item.getNome());
+
         return view;
     }
 
     private class ItemSuporte {
         public TextView textoView;
+        public TextView nomeView;
     }
 }

@@ -7,37 +7,41 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="moblab.exemplolista.MainActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/adicionar_item"
-        android:layout_toStartOf="@+id/adicionar_item" />
+    tools:context="moblab.exemplolista.MainActivity"
+    android:background="@color/CorFundo">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/adicionar_item"
-        android:onClick="adicionarItem"
-        android:text="Enviar"
-        android:layout_below="@+id/lista_itens"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lista_itens"
+        android:layout_above="@+id/adicionar_item"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/adicionar_item"
+        android:onClick="adicionarItem"
+        android:src="@android:drawable/ic_media_play"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/lista_itens"
+        android:layout_alignEnd="@+id/lista_itens"
+        android:background="@color/CorFundo"
+        android:backgroundTint="@color/CorFundo"
+        android:backgroundTintMode="src_over"
+        android:tint="@color/colorPrimaryDark" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/adicionar_item"
         android:layout_toStartOf="@+id/adicionar_item"
-        android:layout_above="@+id/editText"
-        android:layout_alignRight="@+id/adicionar_item"
-        android:layout_alignEnd="@+id/adicionar_item" />
+        android:background="@color/cOR"
+        android:layout_alignTop="@+id/adicionar_item"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>

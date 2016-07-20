@@ -6,13 +6,16 @@ package moblab.exemplolista;
 public class ItemListView {
 
     private String texto;
+    private String nome;
 
     public ItemListView() {
         this.texto = "";
+        this.nome = "";
     }
 
-    public ItemListView(String texto) {
+    public ItemListView(String texto, String nome) {
         this.texto = texto;
+        this.nome = nome;
     }
 
     public String getTexto() {
@@ -21,5 +24,13 @@ public class ItemListView {
 
     public void setTexto(String texto) {
         this.texto = texto;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         campoTexto.setText("");
 
         // Solicita ao webservice a adicao de uma nova mensagem.
-        Fuel.get("http://192.168.10.111:5000/adicionar?nome=" + nome + "&mensagem=" + mensagem).responseString(new Handler<String>() {
+        Fuel.get("http://192.168.10.118:5000/adicionar?nome=" + nome + "&mensagem=" + mensagem).responseString(new Handler<String>() {
             @Override
             public void failure(Request request, Response response, FuelError error) {
                 Log.d("RESULTADO NO", response.toString());
@@ -73,11 +73,15 @@ public class MainActivity extends AppCompatActivity {
         this.listaView = (ListView)findViewById(R.id.lista_itens);
 
         this.listaItensView = new ArrayList<ItemListView>();
-        listaItensView.add(new ItemListView("Buscando Mensagens..."));
+
 
         this.adaptador = new AdapterListView(this, this.listaItensView);
 
         this.listaView.setAdapter(this.adaptador);
+
+        View v = listaView.getChildAt(0);
+        int top = (v == null) ? 0 : v.getTop();
+        this.listaView.setSelectionFromTop(listaItensView.size(), top);
 
         // Inicia a Thread que ficara atualizando a lista.
         new obterMensagensTask().execute("");
@@ -110,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             parar = false;
             while (!parar) {
 
-                Fuel.get("http://192.168.10.111:5000/mensagens").responseString(new Handler<String>() {
+                Fuel.get("http://192.168.10.118:5000/mensagens").responseString(new Handler<String>() {
                     @Override
                     public void failure(Request request, Response response, FuelError error) {
                         Log.d("RESULTADO NO", response.toString());
@@ -134,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                                 JSONObject jsonobject = jsonarray.getJSONObject(i);
                                 String nome = jsonobject.getString("nome");
                                 String mensagem = jsonobject.getString("mensagem");
-                                ItemListView novoItem = new ItemListView(nome + ": " + mensagem);
+                                ItemListView novoItem = new ItemListView(nome, mensagem);
                                 listaItensView.add(novoItem);
                             }
                         } catch (JSONException e) {
