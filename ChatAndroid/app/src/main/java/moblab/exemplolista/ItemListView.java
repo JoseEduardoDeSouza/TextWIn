@@ -8,6 +8,7 @@ public class ItemListView {
     private String texto;
     private String nome;
 
+<<<<<<< HEAD
     public ItemListView(String texto, String nome) {
         this.texto = texto;
         this.nome = nome;
@@ -16,6 +17,16 @@ public class ItemListView {
     public ItemListView() {
         this.texto = "";
         this.nome = "";
+=======
+    public ItemListView() {
+        this.texto = "";
+        this.nome = "";
+    }
+
+    public ItemListView(String texto, String nome) {
+        this.texto = texto;
+        this.nome = nome;
+>>>>>>> 7f97fcd80d3cb42aa9fc0a3800ccbc4b2a463ca4
     }
 
     public String getTexto() {

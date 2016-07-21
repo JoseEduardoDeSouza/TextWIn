@@ -25,7 +25,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/adicionar_item"
         android:onClick="adicionarItem"
+<<<<<<< HEAD
         android:src="@android:drawable/ic_menu_send"
+=======
+        android:src="@android:drawable/ic_media_play"
+>>>>>>> 7f97fcd80d3cb42aa9fc0a3800ccbc4b2a463ca4
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/lista_itens"
         android:layout_alignEnd="@+id/lista_itens"
@@ -43,6 +47,11 @@
         android:layout_toStartOf="@+id/adicionar_item"
         android:background="@color/cOR"
         android:layout_alignTop="@+id/adicionar_item"
+<<<<<<< HEAD
         android:layout_alignParentBottom="true"
          />
 </RelativeLayout>
+=======
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
+>>>>>>> 7f97fcd80d3cb42aa9fc0a3800ccbc4b2a463ca4

@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void adicionarItem(View botao) {
 
+<<<<<<< HEAD
         if (nome.isEmpty()) {
             Toast.makeText(MainActivity.this, "Você deve definir um nome antes de enviar mensagens!", Toast.LENGTH_SHORT).show();
             obterNome();
@@ -65,6 +66,14 @@ public class MainActivity extends AppCompatActivity {
                 public void failure(Request request, Response response, FuelError error) {
                     Log.d("RESULTADO NO", response.toString());
                 }
+=======
+        // Solicita ao webservice a adicao de uma nova mensagem.
+        Fuel.get("http://192.168.10.118:5000/adicionar?nome=" + nome + "&mensagem=" + mensagem).responseString(new Handler<String>() {
+            @Override
+            public void failure(Request request, Response response, FuelError error) {
+                Log.d("RESULTADO NO", response.toString());
+            }
+>>>>>>> 7f97fcd80d3cb42aa9fc0a3800ccbc4b2a463ca4
 
                 @Override
                 public void success(Request request, Response response, String data) {
@@ -88,11 +97,16 @@ public class MainActivity extends AppCompatActivity {
         this.listaView = (ListView)findViewById(R.id.lista_itens);
 
         this.listaItensView = new ArrayList<ItemListView>();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7f97fcd80d3cb42aa9fc0a3800ccbc4b2a463ca4
 
         this.adaptador = new AdapterListView(this, this.listaItensView);
 
         this.listaView.setAdapter(this.adaptador);
 
+<<<<<<< HEAD
         this.listaView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -124,6 +138,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ((EditText) findViewById(R.id.editText)).setHint("Escreva sua mensagem aqui...");
+=======
+        View v = listaView.getChildAt(0);
+        int top = (v == null) ? 0 : v.getTop();
+>>>>>>> 7f97fcd80d3cb42aa9fc0a3800ccbc4b2a463ca4
 
         // Inicia a Thread que ficara atualizando a lista.
         new obterMensagensTask().execute("");
@@ -170,9 +188,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected List<ItemListView> doInBackground(String... params) {
             parar = false;
+
             while (!parar) {
 
+<<<<<<< HEAD
                 Fuel.get("http://192.168.1.111:5000/mensagens").responseString(new Handler<String>() {
+=======
+                Fuel.get("http://192.168.10.118:5000/mensagens").responseString(new Handler<String>() {
+>>>>>>> 7f97fcd80d3cb42aa9fc0a3800ccbc4b2a463ca4
                     @Override
                     public void failure(Request request, Response response, FuelError error) {
                         Log.d("RESULTADO NO", response.toString());
@@ -207,7 +230,10 @@ public class MainActivity extends AppCompatActivity {
                         adaptador = new AdapterListView(MainActivity.this, listaItensView);
                         listaView.setAdapter(adaptador);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7f97fcd80d3cb42aa9fc0a3800ccbc4b2a463ca4
                         if (!entrou) {
                             entrou = true;
                             listaView.setSelectionFromTop(listaItensView.size(), top);
