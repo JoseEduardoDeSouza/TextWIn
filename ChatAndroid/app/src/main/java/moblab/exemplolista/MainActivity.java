@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Esse metodo adiciona uma nova mensagem. Para isso ele pega o texto e envia
     // ao webservice solicitando uma adicao de nova mensagem.
+
     public void adicionarItem(View botao) {
 
         if (nome.isEmpty()) {
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             ((EditText) findViewById(R.id.editText)).setHint("Escreva sua mensagem aqui...");
 
             // Solicita ao webservice a adicao de uma nova mensagem.
-            Fuel.get("http://192.168.0.103:5000/adicionar?nome=" + nome + "&mensagem=" + mensagem).responseString(new Handler<String>() {
+            Fuel.get("http://192.168.1.111:5000/adicionar?nome=" + nome + "&mensagem=" + mensagem).responseString(new Handler<String>() {
                 @Override
                 public void failure(Request request, Response response, FuelError error) {
                     Log.d("RESULTADO NO", response.toString());
@@ -75,9 +76,11 @@ public class MainActivity extends AppCompatActivity {
 
     // Metodo inicial da aplicacao. Tudo comeca aqui. Configuracao do layout inicial e
     // chamada do metodo para configurar o nome, e configuracao da lista de mensagens.
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         obterNome();
@@ -103,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 else {
 
                     // Solicita ao webservice apagar uma mensagem.
-                    Fuel.get("http://192.168.0.103:5000/deletar?nome=" + nome + "&mensagem=" + mensagem).responseString(new Handler<String>() {
+                    Fuel.get("http://192.168.1.111:5000/deletar?nome=" + nome + "&mensagem=" + mensagem).responseString(new Handler<String>() {
                         @Override
                         public void failure(Request request, Response response, FuelError error) {
                             Log.d("RESULTADO NO", response.toString());
@@ -169,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
             parar = false;
             while (!parar) {
 
-                Fuel.get("http://192.168.0.103:5000/mensagens").responseString(new Handler<String>() {
+                Fuel.get("http://192.168.1.111:5000/mensagens").responseString(new Handler<String>() {
                     @Override
                     public void failure(Request request, Response response, FuelError error) {
                         Log.d("RESULTADO NO", response.toString());

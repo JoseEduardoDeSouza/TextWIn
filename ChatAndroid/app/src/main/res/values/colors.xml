@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#9e9e9e</color>
+    <color name="colorPrimaryDark">#767676</color>
+    <color name="colorAccent">#abaaaa</color>
     <color name="CorNome">#000000</color>
-    <color name="CorFundo">#979797</color>
+    <color name="CorFundo">#ffffff</color>
     <color name="CorTexto">#404040</color>
-    <color name="cOR">#8c8c8c</color>
+    <color name="cOR">#ffffff</color>
 </resources>
