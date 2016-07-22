@@ -2,13 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:paddingBottom="10dp">
+=======
+    android:weightSum="1">
+>>>>>>> 7f97fcd80d3cb42aa9fc0a3800ccbc4b2a463ca4
 
     <TextView
         android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+<<<<<<< HEAD
         android:id="@+id/item_texto"
+=======
+        android:id="@+id/iten_texto"
+>>>>>>> 7f97fcd80d3cb42aa9fc0a3800ccbc4b2a463ca4
         android:textColor="@color/CorNome"
         android:textStyle="bold"
         android:textSize="12dp" />
@@ -17,7 +25,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+<<<<<<< HEAD
         android:id="@+id/item_nome"
+=======
+        android:id="@+id/iten_nome"
+>>>>>>> 7f97fcd80d3cb42aa9fc0a3800ccbc4b2a463ca4
         android:textColor="@color/CorTexto"
         />
 

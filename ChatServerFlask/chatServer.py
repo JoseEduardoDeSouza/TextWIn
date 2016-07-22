@@ -98,4 +98,8 @@ def deleta_mensagem():
         return "NAO"
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     app.run(host='192.168.10.106')
+=======
+    app.run(host='192.168.1.111')
+>>>>>>> 67094bd2605b687e51036b9c6d92d80bc796c60b

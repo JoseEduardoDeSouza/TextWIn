@@ -48,6 +48,8 @@ public class AdapterListView extends BaseAdapter {
             itemSuporte.nomeView = ((TextView) view.findViewById(R.id.item_nome));
             itemSuporte.textoView = ((TextView) view.findViewById(R.id.item_texto));
 
+            itemSuporte.nomeView = ((TextView) view.findViewById(R.id.iten_nome));
+
             view.setTag(itemSuporte);
         }
         else {
@@ -57,6 +59,8 @@ public class AdapterListView extends BaseAdapter {
         ItemListView item = listaItens.get(i);
         itemSuporte.nomeView.setText(item.getNome());
         itemSuporte.textoView.setText(item.getTexto());
+
+        itemSuporte.nomeView.setText(item.getNome());
 
         return view;
     }
