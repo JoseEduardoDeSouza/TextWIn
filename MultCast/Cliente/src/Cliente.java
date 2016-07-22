@@ -25,7 +25,7 @@ public class Cliente {
 	}
 }
 
-class EnviaMensagens extends Thread {
+class EnviaMensagens extends AsyncTask {
 
 	public String mensagem;
 	

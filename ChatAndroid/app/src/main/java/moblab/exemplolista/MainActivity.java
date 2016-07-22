@@ -56,13 +56,14 @@ public class MainActivity extends AppCompatActivity {
 
             String mensagem = textoItem;
             campoTexto.setText("");
-            ((EditText) findViewById(R.id.editText)).setHint("Escreva sua mensagem aqui...");
+            ((EditText) findViewById(R.id.editText)).setHint("Mensagem");
 
             // Solicita ao webservice a adicao de uma nova mensagem.
-            Fuel.get("http://192.168.0.103:5000/adicionar?nome=" + nome + "&mensagem=" + mensagem).responseString(new Handler<String>() {
+            Fuel.get("http://192.168.10.106:5000/adicionar?nome=" + nome + "&mensagem=" + mensagem).responseString(new Handler<String>() {
                 @Override
                 public void failure(Request request, Response response, FuelError error) {
                     Log.d("RESULTADO NO", response.toString());
+
                 }
 
                 @Override
@@ -103,10 +104,12 @@ public class MainActivity extends AppCompatActivity {
                 else {
 
                     // Solicita ao webservice apagar uma mensagem.
-                    Fuel.get("http://192.168.0.103:5000/deletar?nome=" + nome + "&mensagem=" + mensagem).responseString(new Handler<String>() {
+                    Fuel.get("http://192.168.10.106:5000/deletar?nome=" + nome + "&mensagem=" + mensagem).responseString(new Handler<String>() {
                         @Override
                         public void failure(Request request, Response response, FuelError error) {
                             Log.d("RESULTADO NO", response.toString());
+
+
                         }
 
                         @Override
@@ -169,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
             parar = false;
             while (!parar) {
 
-                Fuel.get("http://192.168.0.103:5000/mensagens").responseString(new Handler<String>() {
+                Fuel.get("http://192.168.10.106:5000/mensagens").responseString(new Handler<String>() {
                     @Override
                     public void failure(Request request, Response response, FuelError error) {
                         Log.d("RESULTADO NO", response.toString());

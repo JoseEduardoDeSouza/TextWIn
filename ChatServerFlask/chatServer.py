@@ -72,7 +72,7 @@ def bd_deletar_mensagem(nome, mensagem):
 ###################################################
 @app.route('/')
 def pagina_inicial():
-    return "<h1>Bem Vindo ao TextWIn</h1> <h2>Instrucoes:</h2> <b>Para acessar as mensagens: </b> 192.168.10.102:5000/mensagens <br> <br> <b> Para adicionar uma mensagem: </b> 192.168.10.102:5000/adicionar?nome=SeuNome&mensagem=SuaMensagem<br> <br> <b>Para deletar uma mensagem:</b> 192.168.10.102:5000/deletar?nome=SeuNome&mensagem=SuaMensagem"
+    return "<h1>Bem Vindo ao TextWIn</h1> <h2>Instrucoes:</h2> <b>Para acessar as mensagens: </b> 192.168.10.106:5000/mensagens <br> <br> <b> Para adicionar uma mensagem: </b> 192.168.10.106:5000/adicionar?nome=SeuNome&mensagem=SuaMensagem<br> <br> <b>Para deletar uma mensagem:</b> 192.168.10.106:5000/deletar?nome=SeuNome&mensagem=SuaMensagem"
 
 @app.route('/mensagens')
 def listar_mensagens():
@@ -98,4 +98,4 @@ def deleta_mensagem():
         return "NAO"
 
 if __name__ == "__main__":
-    app.run(host='192.168.0.103')
+    app.run(host='192.168.10.106')
